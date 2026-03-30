@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"/>
+<meta name="theme-color" content="#0D9488"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<title>LAMP - UK Visa Sponsor Careers</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
+html{height:100%;background:#0D9488}
+body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Roboto,sans-serif;background:#0D9488;overflow:hidden}
+:root{--teal:#0D9488;--teal-d:#085041;--teal-l:#E1F5EE;--teal-ll:#F0FDF9;--navy:#0D1B4B;--navy-l:#EEF2FF;--green:#16A34A;--green-l:#F0FDF4;--amber:#D97706;--amber-l:#FFFBEB;--red:#DC2626;--red-l:#FEF2F2;--gray:#F3F4F6;--gray-2:#E5E7EB;--gray-3:#D1D5DB;--text:#111827;--sub:#6B7280;--hint:#9CA3AF;--shadow:0 1px 3px rgba(0,0,0,.08)}
+#app{width:100%;max-width:430px;height:100dvh;margin:0 auto;background:#F8FAFC;display:flex;flex-direction:column;overflow:hidden}
+.screen{display:none;flex-direction:column;flex:1;overflow:hidden;animation:fi .22s ease}
+.screen.active{display:flex}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.tb{background:var(--teal);padding:13px 18px 12px;display:flex;align-items:center;gap:10px;flex-shrink:0;box-shadow:0 2px 8px rgba(13,148,136,.25)}
+.tb-logo{display:flex;align-items:center;gap:9px;cursor:pointer}
+.tb-wm{font-size:18px;font-weight:800;font-style:italic;color:#fff;letter-spacing:.5px}
+.tb-tag{font-size:9.5px;color:rgba(255,255,255,.7);margin-top:1px}
+.sbadge{background:rgba(255,255,255,.2);color:#fff;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:700;border:1px solid rgba(255,255,255,.18)}
+.pbar{height:3px;background:rgba(255,255,255,.22);flex-shrink:0}
+.pfill{height:3px;background:#fff;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.sc{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:20px 18px 24px}
+.sc::-webkit-scrollbar{display:none}
+.sinfo{font-size:11.5px;font-weight:600;color:var(--hint);letter-spacing:.3px;margin-bottom:4px}
+.stitle{font-size:22px;font-weight:800;color:var(--text);margin-bottom:5px;line-height:1.2}
+.ssub{font-size:13.5px;color:var(--sub);margin-bottom:22px;line-height:1.55}
+.ssub strong{color:var(--teal);font-weight:700}
+.card{background:#fff;border-radius:16px;border:1px solid var(--gray-2);padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}
+.ct{font-size:15px;font-weight:700;color:var(--text);margin-bottom:14px}
+.cdiv{height:1px;background:var(--gray);margin:12px -18px}
+.fl{font-size:12px;font-weight:600;color:var(--sub);margin-bottom:5px;display:block}
+.inp{width:100%;padding:12px 15px;border:1.5px solid var(--gray-2);border-radius:11px;font-size:15px;color:var(--text);background:#fff;outline:none;transition:border-color .18s,box-shadow .18s;-webkit-appearance:none}
+.inp:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,148,136,.12)}
+.inp::placeholder{color:var(--hint)}
+select.inp{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%236B7280' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;cursor:pointer}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.fg{margin-bottom:14px}
+.vr{display:flex;gap:8px;align-items:stretch;margin-bottom:12px}
+.vr .inp{flex:1}
+.vbtn{flex-shrink:0;background:var(--navy);color:#fff;border:none;border-radius:11px;padding:0 14px;font-size:12.5px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .15s;min-width:88px;display:flex;align-items:center;justify-content:center}
+.vbtn:active{transform:scale(.97)}
+.vbtn.vd{background:var(--teal);pointer-events:none}
+.ur{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--gray)}
+.ur:last-child{border-bottom:none;padding-bottom:2px}
+.uico{font-size:20px;width:28px;text-align:center;flex-shrink:0}
+.unm{font-size:14px;color:var(--text);font-weight:500;flex:1}
+.ubtn{flex-shrink:0;background:var(--teal-l);color:var(--teal-d);border:none;border-radius:9px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
+.ubtn.ud{background:var(--green-l);color:var(--green)}
+.skr{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--gray)}
+.skr:last-of-type{border-bottom:none}
+.skr .inp{flex:1}
+.sks{font-size:11px;font-weight:700;padding:4px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;background:var(--red-l);color:var(--red)}
+.sks.ok{background:var(--teal-l);color:var(--teal-d)}
+.sring{width:38px;height:38px;border-radius:50%;border:2.5px solid var(--teal);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--teal);flex-shrink:0;background:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0}
+.chip{padding:9px 16px;border-radius:30px;border:1.5px solid var(--gray-2);background:#fff;font-size:13.5px;font-weight:500;color:var(--text);cursor:pointer;transition:all .15s;user-select:none;box-shadow:var(--shadow)}
+.chip:active{transform:scale(.95)}
+.chip.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn{display:block;width:100%;padding:15px;border-radius:13px;font-size:15.5px;font-weight:700;text-align:center;border:none;cursor:pointer;transition:all .15s}
+.btn:active{transform:scale(.98)}
+.bnt{background:var(--teal);color:#fff;box-shadow:0 4px 14px rgba(13,148,136,.3)}
+.bno{background:#fff;color:var(--teal);border:2px solid var(--teal)}
+.nr{display:flex;gap:10px;padding:13px 18px calc(13px + env(safe-area-inset-bottom,0));background:#fff;border-top:1px solid var(--gray-2);flex-shrink:0}
+.nr .btn{flex:1;padding:14px}
+.nbk{flex:.52!important}.nnx{flex:1.48!important}
+.p{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;margin:2px}
+.pt{background:var(--teal-l);color:var(--teal-d)}.pn{background:var(--navy-l);color:var(--navy)}.pa{background:var(--amber-l);color:var(--amber)}.pg{background:var(--gray);color:var(--sub)}.pr{background:var(--red-l);color:var(--red)}
+.al{display:flex;align-items:center;justify-content:center;gap:5px;color:var(--teal);font-size:14px;font-weight:700;padding:10px;cursor:pointer;border:1.5px dashed var(--teal-l);border-radius:10px;margin-top:4px;background:var(--teal-ll)}
+.ib{border-radius:12px;padding:13px 15px;font-size:13px;line-height:1.55}
+.ibt{background:var(--teal-l);border:1px solid #9FE1CB;color:var(--teal-d)}
+.iba{background:var(--amber-l);border:1px solid #FDE68A;color:var(--amber)}
+.ibr{background:var(--red-l);border:1px solid #FECACA;color:var(--red)}
+.uz{border:2px dashed var(--gray-2);border-radius:16px;padding:28px 20px;text-align:center;cursor:pointer;background:#fff;margin-bottom:16px;box-shadow:var(--shadow)}
+.uzi{font-size:40px;margin-bottom:10px;line-height:1}
+.uzt{font-size:16px;font-weight:700;color:var(--text);margin-bottom:5px}
+.uzs{font-size:13px;color:var(--sub);line-height:1.55}
+.uzc{display:inline-block;margin-top:12px;background:var(--teal-l);color:var(--teal-d);font-weight:700;font-size:14px;padding:9px 24px;border-radius:11px}
+.rfc{background:var(--gray);border-radius:14px;padding:15px;margin-bottom:12px}
+.rfc .inp{background:#fff;margin-bottom:10px}
+.sndbtn{width:100%;background:var(--navy);color:#fff;border:none;border-radius:10px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.sndbtn.sent{background:var(--teal)}
+.pgrid{display:flex;gap:10px;flex-wrap:wrap;padding-top:4px}
+.pslot{width:62px;height:62px;border-radius:12px;border:2px dashed var(--gray-3);display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;background:var(--gray)}
+.pslot.pf{border:none;background:var(--teal-l)}
+#sc-signin{background:var(--teal)}
+.sisc{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;align-items:center;padding:32px 24px calc(32px + env(safe-area-inset-bottom,0))}
+.sisc::-webkit-scrollbar{display:none}
+.silw{display:flex;flex-direction:column;align-items:center;margin-bottom:28px}
+.siwm{font-size:36px;font-weight:900;font-style:italic;color:#fff;letter-spacing:3px;margin-top:12px}
+.siuk{margin-top:8px;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.9);padding:5px 14px;border-radius:20px;font-size:11.5px;font-weight:600}
+.sitag{font-size:13.5px;color:rgba(255,255,255,.8);text-align:center;margin-top:10px;line-height:1.6;max-width:280px}
+.sic{background:#fff;border-radius:22px;padding:24px 22px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,.15)}
+.sict{font-size:17px;font-weight:800;color:var(--text);margin-bottom:16px}
+.sic .inp{margin-bottom:12px}
+.sirow{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.sichk{display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--sub);cursor:pointer}
+.sifg{font-size:13.5px;color:var(--teal);font-weight:700;cursor:pointer}
+.sidiv{text-align:center;font-size:12.5px;color:var(--hint);margin:16px 0;position:relative}
+.sidiv::before,.sidiv::after{content:'';position:absolute;top:50%;width:38%;height:1px;background:var(--gray-2)}
+.sidiv::before{left:0}.sidiv::after{right:0}
+.socrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.socbtn{padding:12px;border-radius:11px;border:1.5px solid var(--gray-2);background:#fff;font-size:13.5px;font-weight:600;color:var(--text);text-align:center;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.socbtn:active{background:var(--gray)}
+.sicr{text-align:center;margin-top:18px;font-size:14px;color:rgba(255,255,255,.8)}
+.sicr strong{color:#fff;cursor:pointer;font-weight:800;text-decoration:underline;text-underline-offset:2px}
+.ph{background:linear-gradient(150deg,var(--navy) 0%,var(--teal) 100%);padding:20px 20px 28px;flex-shrink:0;position:relative;overflow:hidden}
+.ph::after{content:'';position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);width:200%;height:56px;background:#F8FAFC;border-radius:50%}
+.phtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.phlogo{display:flex;align-items:center;gap:8px}
+.phwm{font-size:17px;font-weight:900;font-style:italic;color:#fff;letter-spacing:.5px}
+.phvbadge{font-size:11.5px;color:rgba(255,255,255,.85);background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);padding:4px 11px;border-radius:20px;font-weight:600}
+.phav{width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.2);border:3px solid rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:#fff;flex-shrink:0}
+.phname{font-size:21px;font-weight:800;color:#fff;line-height:1.2}
+.phrole{font-size:13px;color:rgba(255,255,255,.78);margin-top:3px}
+.strrow{display:flex;justify-content:space-between;align-items:center;margin:16px 0 6px;position:relative;z-index:1}
+.strlbl{font-size:13px;color:rgba(255,255,255,.9);font-weight:600}
+.strpct{font-size:14px;font-weight:800;color:#fff}
+.strtrk{height:7px;background:rgba(255,255,255,.22);border-radius:4px;position:relative;z-index:1}
+.strfil{height:7px;background:#fff;border-radius:4px;transition:width .6s ease}
+.strhint{font-size:11.5px;color:rgba(255,255,255,.6);margin-top:5px;position:relative;z-index:1}
+.brow{display:flex;align-items:center;gap:13px;padding:13px 0;border-bottom:1px solid var(--gray)}
+.brow:last-child{border-bottom:none;padding-bottom:2px}
+.bico{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.bact{background:var(--teal-l)}.bamb{background:var(--amber-l)}.bloc{background:var(--gray)}
+.binf{flex:1}
+.bnm{font-size:15px;font-weight:700;color:var(--text)}
+.bsb{font-size:12.5px;color:var(--sub);margin-top:2px}
+.bchk{color:var(--teal);font-size:20px;flex-shrink:0}
+.blck{color:var(--gray-3);font-size:20px;flex-shrink:0}
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+.icell{background:var(--gray);border-radius:12px;padding:13px 14px}
+.icl{font-size:11px;font-weight:600;color:var(--hint);letter-spacing:.3px;margin-bottom:5px}
+.icv{font-size:15px;font-weight:800;color:var(--text)}
+.jcard{background:#fff;border-radius:16px;border:1px solid var(--gray-2);padding:15px;margin-bottom:10px;box-shadow:var(--shadow)}
+.jctop{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.jico{width:46px;height:46px;border-radius:14px;background:var(--teal-l);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.jtit{font-size:15px;font-weight:700;color:var(--text)}
+.jloc{font-size:12.5px;color:var(--sub);margin-top:2px}
+.jmatch{margin-left:auto;background:var(--teal);color:#fff;border-radius:9px;padding:6px 11px;font-size:15px;font-weight:800;flex-shrink:0}
+.jtags{display:flex;flex-wrap:wrap;gap:5px}
+.pbtns{display:flex;gap:10px;margin-top:6px}
+.pbtns .btn{flex:1}
+.tabbar{display:flex;background:#fff;border-top:1px solid var(--gray-2);flex-shrink:0;padding-bottom:env(safe-area-inset-bottom,0);box-shadow:0 -2px 10px rgba(0,0,0,.05)}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:9px 4px 11px;cursor:pointer;color:var(--hint)}
+.tab.on{color:var(--teal)}
+.tab svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tab span{font-size:10px;font-weight:700}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;align-items:flex-end;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:24px 24px 0 0;width:100%;max-width:430px;padding:20px 20px calc(20px + env(safe-area-inset-bottom,0));max-height:90dvh;overflow-y:auto}
+.modal-handle{width:40px;height:4px;background:var(--gray-3);border-radius:2px;margin:0 auto 20px}
+.modal-title{font-size:19px;font-weight:800;color:var(--text);margin-bottom:6px}
+.modal-sub{font-size:13.5px;color:var(--sub);margin-bottom:20px;line-height:1.5}
+.quiz-q-card{background:#fff;border-radius:16px;border:1px solid var(--gray-2);padding:20px;box-shadow:var(--shadow);margin-bottom:14px}
+.quiz-q-num{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:.3px;margin-bottom:8px}
+.quiz-q-text{font-size:16px;font-weight:600;color:var(--text);line-height:1.5}
+.quiz-opts{display:flex;flex-direction:column;gap:10px}
+.quiz-opt{padding:13px 16px;border-radius:12px;border:1.5px solid var(--gray-2);background:#fff;font-size:14.5px;color:var(--text);cursor:pointer;text-align:left;width:100%;transition:all .15s}
+.quiz-opt.sel{border-color:var(--teal);background:var(--teal-l);color:var(--teal-d);font-weight:600}
+.quiz-opt.correct{border-color:var(--green);background:var(--green-l);color:var(--green)}
+.quiz-opt.wrong{border-color:var(--red);background:var(--red-l);color:var(--red)}
+.score-ring{width:100px;height:100px;border-radius:50%;border:6px solid var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;flex-direction:column}
+.user-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--gray)}
+.user-row:last-child{border-bottom:none}
+.user-av{width:40px;height:40px;border-radius:50%;background:var(--teal-l);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:var(--teal-d);flex-shrink:0}
+.spin{width:32px;height:32px;border:3px solid var(--teal-l);border-top-color:var(--teal);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+#toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%) translateY(8px);background:var(--navy);color:#fff;padding:11px 22px;border-radius:30px;font-size:14px;font-weight:700;opacity:0;transition:all .3s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:9999;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.22);max-width:88vw;white-space:normal;text-align:center}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.rrl{text-align:center;padding:14px;font-size:14px;color:var(--hint);cursor:pointer}
+.rrl span{color:var(--teal);font-weight:700}
+@media(min-width:431px){body::before{content:'';position:fixed;inset:0;background:linear-gradient(135deg,#0D1B4B 0%,#0D9488 100%);z-index:-1}}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- SIGN IN -->
+<div id="sc-signin" class="screen active">
+  <div class="sisc">
+    <div class="silw">
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="10" r="8" fill="#20C997"/>
+        <rect x="33" y="10" width="14" height="46" rx="7" fill="url(#g0)"/>
+        <rect x="33" y="50" width="32" height="14" rx="7" fill="#20C997"/>
+        <polygon points="47,21 74,37 47,53" fill="rgba(255,255,255,.28)"/>
+        <defs><linearGradient id="g0" x1="40" y1="10" x2="40" y2="56" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0D1B4B"/><stop offset="100%" stop-color="#0D9488"/></linearGradient></defs>
+      </svg>
+      <div class="siwm">LAMP</div>
+      <div class="siuk">UK Visa Sponsor Careers</div>
+      <div class="sitag">Your launchpad to UK visa-sponsored careers — built for international students in nursing, medicine, engineering, data science &amp; IT.</div>
+    </div>
+    <div class="sic" id="panel-signin">
+      <div class="sict">Welcome back</div>
+      <div class="fg"><label class="fl">Email</label><input class="inp" id="si-email" type="email" placeholder="you@example.com" autocomplete="email"/></div>
+      <div class="fg"><label class="fl">Password</label><input class="inp" id="si-pass" type="password" placeholder="Your password"/></div>
+      <div class="sirow"><label class="sichk"><input type="checkbox" checked/> Remember me</label><span class="sifg" onclick="toast('Password reset - coming soon!')">Forgot password?</span></div>
+      <div id="si-err" class="ib ibr" style="margin-bottom:14px;display:none"></div>
+      <button class="btn bnt" onclick="doSignIn()">Sign In</button>
+      <div class="sidiv">or</div>
+      <div class="socrow">
+        <div class="socbtn" onclick="quickDemo()">Demo Mode</div>
+        <div class="socbtn" onclick="showPanel('create')">Sign Up</div>
+      </div>
+    </div>
+    <div class="sic" id="panel-create" style="display:none">
+      <div class="sict">Create your account</div>
+      <div class="r2">
+        <div class="fg"><label class="fl">First Name</label><input class="inp" id="cr-fn" placeholder="Amir"/></div>
+        <div class="fg"><label class="fl">Last Name</label><input class="inp" id="cr-ln" placeholder="Okafor"/></div>
+      </div>
+      <div class="fg"><label class="fl">Email</label><input class="inp" id="cr-email" type="email" placeholder="you@example.com"/></div>
+      <div class="fg"><label class="fl">Password (min 6 chars)</label><input class="inp" id="cr-pass" type="password" placeholder="Choose a password"/></div>
+      <div class="fg"><label class="fl">I am signing up as</label>
+        <select class="inp" id="cr-role">
+          <option value="candidate">International Student / Graduate</option>
+          <option value="employer">UK SME Employer / Recruiter</option>
+        </select>
+      </div>
+      <div id="cr-err" class="ib ibr" style="margin-bottom:14px;display:none"></div>
+      <button class="btn bnt" onclick="doCreate()">Create Account</button>
+      <div style="text-align:center;margin-top:14px;font-size:13.5px;color:var(--sub)">Already have an account? <span style="color:var(--teal);font-weight:700;cursor:pointer" onclick="showPanel('signin')">Sign In</span></div>
+    </div>
+    <div class="sicr" id="si-cr-link">New here? <strong onclick="showPanel('create')">Create Account</strong></div>
+    <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,.4);text-align:center;cursor:pointer" onclick="showAdmin()">Admin: View signups</div>
+  </div>
+</div>
+
+<!-- STEP 1 -->
+<div id="sc-1" class="screen">
+  <div class="tb"><div class="tb-logo"><svg width="28" height="28" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="10" r="8" fill="#20C997"/><rect x="33" y="10" width="14" height="46" rx="7" fill="white" opacity=".9"/><rect x="33" y="50" width="32" height="14" rx="7" fill="#20C997"/><polygon points="47,21 74,37 47,53" fill="rgba(255,255,255,.3)"/></svg><div><div class="tb-wm">LAMP</div><div class="tb-tag">UK Visa Sponsor Careers</div></div></div><div style="margin-left:auto"><div class="sbadge">Step 1 of 8</div></div></div>
+  <div class="pbar"><div class="pfill" style="width:12.5%"></div></div>
+  <div class="sc">
+    <div class="sinfo">Step 1 of 8 - Fill in your details below</div>
+    <div class="stitle">Personal Info</div>
+    <div class="ssub">Tell us about yourself so we can match you with the right visa-sponsored roles.</div>
+    <div class="card">
+      <div class="r2"><div class="fg"><label class="fl">First Name</label><input class="inp" id="p1-fn" placeholder="Amir"/></div><div class="fg"><label class="fl">Last Name</label><input class="inp" id="p1-ln" placeholder="Okafor"/></div></div>
+      <div class="fg"><label class="fl">Phone Number</label><input class="inp" id="p1-ph" type="tel" placeholder="+44 7700 900 000"/></div>
+      <div class="fg"><label class="fl">City / Address in UK</label><input class="inp" id="p1-city" placeholder="e.g. Leeds, UK"/></div>
+      <div class="fg"><label class="fl">Career Field</label><select class="inp" id="p1-field"><option value="">- Select your field -</option><option>Nursing &amp; Healthcare</option><option>Medicine &amp; Doctors</option><option>Engineering</option><option>Data Science &amp; Analytics</option><option>IT &amp; Software Engineering</option></select></div>
+    </div>
+    <div class="ib ibt">Welcome, <strong id="p1-hi"></strong>! Fill in your details to start building your verified profile.</div>
+  </div>
+  <div class="nr"><button class="btn bno nbk" onclick="go('sc-signin')">Back</button><button class="btn bnt nnx" onclick="saveStep1()">Next</button></div>
+</div>
+
+<!-- STEP 2 -->
+<div id="sc-2" class="screen">
+  <div class="tb"><div class="tb-logo"><svg width="28" height="28" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="10" r="8" fill="#20C997"/><rect x="33" y="10" width="14" height="46" rx="7" fill="white" opacity=".9"/><rect x="33" y="50" width="32" height="14" rx="7" fill="#20C997"/><polygon points="47,21 74,37 47,53" fill="rgba(255,255,255,.3)"/></svg><div><div class="tb-wm">LAMP</div><div class="tb-tag">UK Visa Sponsor Careers</div></div></div><div style="margin-left:auto"><div class="sbadge">Step 2 of 8</div></div></div>
+  <div class="pbar"><div class="pfill" style="width:25%"></div></div>
+  <div class="sc">
+    <div class="sinfo">Step 2 of 8</div><div class="stitle">Education</div><div class="ssub">Enter your details, then hit <strong>Verify</strong> to take a short quiz and earn a badge.</div>
+    <div class="card">
+      <div class="ct">Bachelor's Degree</div>
+      <label class="fl">Subject Area</label><div class="vr"><input class="inp" id="ed-bsub" placeholder="e.g. Electronic Engineering"/><button class="vbtn" id="vb-bsub" onclick="startQuiz('bsub','Bachelor Subject Knowledge')">Verify</button></div>
+      <label class="fl">Institution</label><div class="vr"><input class="inp" id="ed-binst" placeholder="e.g. University of Lagos"/><button class="vbtn" id="vb-binst" onclick="startQuiz('binst','Academic Institution Standards')">Verify</button></div>
+      <label class="fl">Grade / GPA</label><div class="vr"><input class="inp" id="ed-bgrade" placeholder="e.g. 2:1 / 3.8 GPA"/><button class="vbtn" id="vb-bgrade" onclick="startQuiz('bgrade','Academic Standards')">Verify</button></div>
+      <div class="r2" style="margin-bottom:16px"><div><label class="fl">Start Year</label><input class="inp" id="ed-bsy" placeholder="2014" type="number"/></div><div><label class="fl">End Year</label><input class="inp" id="ed-bey" placeholder="2018" type="number"/></div></div>
+      <div class="ur"><span class="uico">📄</span><div><div class="unm">Degree Certificate</div></div><button class="ubtn" onclick="upl(this,'cert_bsc')">Upload</button></div>
+      <div class="ur"><span class="uico">📋</span><div><div class="unm">Transcript</div></div><button class="ubtn" onclick="upl(this,'transcript_bsc')">Upload</button></div>
+      <div class="ur"><span class="uico">📝</span><div><div class="unm">Final Year Project</div></div><button class="ubtn" onclick="upl(this,'fyp_bsc')">Upload</button></div>
+      <div class="ur"><span class="uico">🏅</span><div><div class="unm">Awards / Certificates</div></div><button class="ubtn" onclick="upl(this,'awards_bsc')">Upload</button></div>
+    </div>
+    <div class="card">
+      <div class="ct">Master's Degree <span style="font-size:13px;font-weight:400;color:var(--sub)">(if applicable)</span></div>
+      <label class="fl">Subject Area</label><div class="vr"><input class="inp" id="ed-msub" placeholder="e.g. MSc Entrepreneurship"/><button class="vbtn" id="vb-msub" onclick="startQuiz('msub','Master Level Knowledge')">Verify</button></div>
+      <div class="fg"><label class="fl">Institution</label><input class="inp" id="ed-minst" placeholder="e.g. Leeds Beckett University"/></div>
+      <div class="r2" style="margin-bottom:12px"><div><label class="fl">Start Year</label><input class="inp" id="ed-msy" placeholder="2022" type="number"/></div><div><label class="fl">End Year</label><input class="inp" id="ed-mey" placeholder="2024" type="number"/></div></div>
+      <div class="fg"><label class="fl">Grade</label><input class="inp" id="ed-mgr" placeholder="e.g. Merit / Distinction"/></div>
+      <div class="ur"><span class="uico">📄</span><div><div class="unm">Degree Certificate</div></div><button class="ubtn" onclick="upl(this,'cert_msc')">Upload</button></div>
+      <div class="ur"><span class="uico">📋</span><div><div class="unm">Transcript</div></div><button class="ubtn" onclick="upl(this,'transcript_msc')">Upload</button></div>
+      <div class="ur"><span class="uico">📝</span><div><div class="unm">Thesis / Final Project</div></div><button class="ubtn" onclick="upl(this,'thesis_msc')">Upload</button></div>
+    </div>
+  </div>
+  <div class="nr"><button class="btn bno nbk" onclick="go('sc-1')">Back</button><button class="btn bnt nnx" onclick="nxt('sc-3',2)">Next</button></div>
+</div>
+
+<!-- STEP 3 -->
+<div id="sc-3" class="screen">
+  <div class="tb"><div class="tb-logo"><svg width="28" height="28" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="10" r="8" fill="#20C997"/><rect x="33" y="10" width="14" height="46" rx="7" fill="white" opacity=".9"/><rect x="33" y="50" width="32" height="14" rx="7" fill="#20C997"/><polygon points="47,21 74,37 47,53" fill="rgba(255,255,255,.3)"/></svg><div><div class="tb-wm">LAMP</div><div class="tb-tag">UK Visa Sponsor Careers</div></div></div><div style="margin-left:auto"><div class="sbadge">Step 3 of 8</div></div></div>
+  <div class="pbar"><div class="pfill" style="width:37.5%"></div></div>
+  <div class="sc">
+    <div class="sinfo">Step 3 of 8</div><div class="stitle">Work Experience</div><div class="ssub">Enter your roles and <strong>Verify</strong> each responsibility with a short quiz.</div>
+    <div class="card">
+      <div class="ct">Role 1</div>
+      <div class="fg"><label class="fl">Company Name</label><input class="inp" id="wx-co" placeholder="e.g. NigerTech Solutions"/></div>
+      <label class="fl">Position</label><div class="vr"><input class="inp" id="wx-pos" placeholder="e.g. Electronics Engineer"/><button class="vbtn" id="vb-wxpos" onclick="startQuiz('wxpos','Professional Role Knowledge')">Verify</button></div>
+      <div class="r2" style="margin-bottom:14px"><div><label class="fl">Start Date</label><input class="inp" id="wx-sd" placeholder="Jan 2018"/></div><div><label class="fl">End Date</label><input class="inp" id="wx-ed" placeholder="Dec 2022"/></div></div>
+      <div class="ur"><span class="uico">📄</span><div><div class="unm">Job Completion Letter</div><div style="font-size:11px;color:var(--hint)">Optional but strengthens profile</div></div><button class="ubtn" onclick="upl(this,'job_letter')">Upload</button></div>
+      <div class="cdiv"></div>
+      <div class="ct" style="margin-top:14px">Job Responsibilities</div>
+      <div class="vr"><input class="inp" id="wx-r1" placeholder="e.g. Circuit design and testing"/><button class="vbtn" id="vb-wxr1" onclick="startQuiz('wxr1','Technical Engineering Skills')">Verify</button></div>
+      <div class="vr"><input class="inp" id="wx-r2" placeholder="e.g. Team leadership"/><button class="vbtn" id="vb-wxr2" onclick="startQuiz('wxr2','Leadership and Teamwork')">Verify</button></div>
+      <div class="al" onclick="toast('More responsibilities - coming in full version!')">+ Add responsibility</div>
+      <div class="cdiv"></div>
+      <div class="ct" style="margin-top:14px">Proof Photos <span style="font-size:13px;font-weight:400;color:var(--sub)">(up to 5)</span></div>
+      <div class="pgrid">
+        <div class="pslot" onclick="upl(this,'photo1')">📷</div><div class="pslot" onclick="upl(this,'photo2')">📷</div><div class="pslot" onclick="upl(this,'photo3')">📷</div><div class="pslot" onclick="upl(this,'photo4')">📷</div><div class="pslot" onclick="upl(this,'photo5')">📷</div>
+      </div>
+    </div>
+    <div class="al" onclick="toast('Multi-role support - coming in full version!')">+ Add another role</div>
+  </div>
+  <div class="nr"><button class="btn bno nbk" onclick="go('sc-2')">Back</button><button class="btn bnt nnx" onclick="nxt('sc-4',3)">Next</button></div>
+</div>
+
+<!-- STEP 4 -->
+<div id="sc-4" class="screen">
+  <div class="tb"><div class="tb-logo"><svg width="28" height="28" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="10" r="8" fill="#20C997"/><rect x="33" y="10" width="14" height="46" rx="7" fill="white" opacity=".9"/><rect x="33" y="50" width="32" height="14" rx="7" fill="#20C997"/><polygon points="47,21 74,37 47,53" fill="rgba(255,255,255,.3)"/></svg><div><div class="tb-wm">LAMP</div><div class="tb-tag">UK Visa Sponsor Careers</div></div></div><div style="margin-left:auto"><div class="sbadge">Step 4 of 8</div></div></div>
+  <div class="pbar"><div class="pfill" style="width:50%"></div></div>
+  <div class="sc">
+    <div class="sinfo">Step 4 of 8</div><div class="stitle">Skills</div><div class="ssub">Type a skill then hit <strong>Verify</strong> to take a quiz and earn a badge on your profile.</div>
+    <div class="card">
+      <div class="skr"><input class="inp" id="sk-1" placeholder="e.g. Python"/><span class="sks" id="sks-1">Not Verified</span><button class="vbtn" id="vbsk-1" onclick="startSkillQ(1)">Verify</button></div>
+      <div class="skr"><input class="inp" id="sk-2" placeholder="e.g. SQL"/><span class="sks" id="sks-2">Not Verified</span><button class="vbtn" id="vbsk-2" onclick="startSkillQ(2)">Verify</button></div>
+      <div class="skr"><input class="inp" id="sk-3" placeholder="e.g. Data Analysis"/><span class="sks" id="sks-3">Not Verified</span><button class="vbtn" id="vbsk-3" onclick="startSkillQ(3)">Verify</button></div>
+      <div class="al" onclick="toast('More skill slots - coming soon!')">+ Add skill</div>
+    </div>
+    <div class="card" id="badges-earned" style="background:var(--teal-l);border-color:#9FE1CB">
+      <div style="font-size:14px;font-weight:700;margin-bottom:8px;color:var(--teal-d)">Badges earned so far</div>
+      <div id="bl">No badges yet - verify your skills above!</div>
+    </div>
+  </div>
+  <div class="nr"><button class="btn bno nbk" onclick="go('sc-3')">Back</button><button class="btn bnt nnx" onclick="nxt('sc-5',4)">Next</button></div>
+</div>
+
+<!-- STEP 5 -->
+<div id="sc-5" class="screen">
+  <div class="tb"><div class="tb-logo"><svg width="28" height="28" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="10" r="8" fill="#20C997"/><rect x="33" y="10" width="14" height="46" rx="7" fill="white" opacity=".9"/><rect x="33" y="50" width="32" height="14" rx="7" fill="#20C997"/><polygon points="47,21 74,37 47,53" fill="rgba(255,255,255,.3)"/></svg><div><div class="tb-wm">LAMP</div><div class="tb-tag">UK Visa Sponsor Careers</div></div></div><div style="margin-left:auto"><div class="sbadge">Step 5 of 8</div></div></div>
+  <div class="pbar"><div class="pfill" style="width:62.5%"></div></div>
+  <div class="sc">
+    <div class="sinfo">Step 5 of 8</div><div class="stitle">Recommendations</div><div class="ssub">Invite referees - tutors, managers, or supervisors - to verify your profile.</div>
+    <div class="rfc"><label class="fl">Referee 1</label><input class="inp" id="ref1n" placeholder="Full name"/><input class="inp" id="ref1e" placeholder="Email address" type="email"/><button class="sndbtn" id="refbtn1" onclick="sndRef(1)">Send Invite</button></div>
+    <div class="rfc"><label class="fl">Referee 2</label><input class="inp" id="ref2n" placeholder="Full name"/><input class="inp" id="ref2e" placeholder="Email address" type="email"/><button class="sndbtn" id="refbtn2" onclick="sndRef(2)">Send Invite</button></div>
+    <div class="al" onclick="toast('More referee slots - coming soon!')">+ Add referee</div>
+    <div class="ib iba" style="margin-top:14px">Each verified referee unlocks a Trust Badge on your profile - making you 2x more likely to be shortlisted by UK SME employers.</div>
+  </div>
+  <div class="nr"><button class="btn bno nbk" onclick="go('sc-4')">Back</button><button class="btn bnt nnx" onclick="nxt('sc-6',5)">Next</button></div>
+</div>
+
+<!-- STEP 6 -->
+<div id="sc-6" class="screen">
+  <div class="tb"><div class="tb-logo"><svg width="28" height="28" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="10" r="8" fill="#20C997"/><rect x="33" y="10" width="14" height="46" rx="7" fill="white" opacity=".9"/><rect x="33" y="50" width="32" height="14" rx="7" fill="#20C997"/><polygon points="47,21 74,37 47,53" fill="rgba(255,255,255,.3)"/></svg><div><div class="tb-wm">LAMP</div><div class="tb-tag">UK Visa Sponsor Careers</div></div></div><div style="margin-left:auto"><div class="sbadge">Step 6 of 8</div></div></div>
+  <div class="pbar"><div class="pfill" style="width:75%"></div></div>
+  <div class="sc">
+    <div class="sinfo">Step 6 of 8</div><div class="stitle">Visa Status</div><div class="ssub">Confirm your right to work in the UK so SME employers can proceed with confidence.</div>
+    <div class="uz" onclick="uplVisa(this)"><div class="uzi">📄</div><div class="uzt">Upload Proof of Visa Status</div><div class="uzs">BRP card, passport visa page, vignette - documents stay private and encrypted</div><div class="uzc" id="vup-cta">Tap to upload</div></div>
+    <div class="fg"><label class="fl">Share Code (optional)</label><input class="inp" id="visa-code" placeholder="e.g. W9X-3KT-J7R"/></div>
+    <div class="fg"><label class="fl">Visa Type</label><select class="inp" id="visa-type"><option value="">- Select visa type -</option><option value="student">Student Visa (Tier 4)</option><option value="graduate">Graduate Route Visa</option><option value="skilled">Skilled Worker Visa</option><option value="youth">Youth Mobility Scheme</option><option value="dependant">Dependant Visa</option><option value="other">Other / Unsure</option></select></div>
+    <div class="ib ibt" id="vconf" style="display:none"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Visa confirmed</div><div id="vconf-txt">Graduate Route - Right to work in the UK</div></div>
+  </div>
+  <div class="nr"><button class="btn bno nbk" onclick="go('sc-5')">Back</button><button class="btn bnt nnx" onclick="saveVisa()">Next</button></div>
+</div>
+
+<!-- STEP 7 -->
+<div id="sc-7" class="screen">
+  <div class="tb"><div class="tb-logo"><svg width="28" height="28" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="10" r="8" fill="#20C997"/><rect x="33" y="10" width="14" height="46" rx="7" fill="white" opacity=".9"/><rect x="33" y="50" width="32" height="14" rx="7" fill="#20C997"/><polygon points="47,21 74,37 47,53" fill="rgba(255,255,255,.3)"/></svg><div><div class="tb-wm">LAMP</div><div class="tb-tag">UK Visa Sponsor Careers</div></div></div><div style="margin-left:auto"><div class="sbadge">Step 7 of 8</div></div></div>
+  <div class="pbar"><div class="pfill" style="width:87.5%"></div></div>
+  <div class="sc">
+    <div class="sinfo">Step 7 of 8</div><div class="stitle">Areas of Interest</div><div class="ssub">Choose <strong>up to 3 per category</strong> - we will match you to UK SMEs offering visa sponsorship.</div>
+    <div class="card"><div class="ct">Internships</div><div class="chips" id="ch-intern"><div class="chip" onclick="tog(this,'i')">Software Dev</div><div class="chip" onclick="tog(this,'i')">Data Analytics</div><div class="chip" onclick="tog(this,'i')">NHS Placement</div><div class="chip" onclick="tog(this,'i')">Research Lab</div><div class="chip" onclick="tog(this,'i')">Engineering</div><div class="chip" onclick="tog(this,'i')">FinTech</div></div></div>
+    <div class="card"><div class="ct">Full-time Roles</div><div class="chips" id="ch-full"><div class="chip" onclick="tog(this,'f')">AI / ML Engineer</div><div class="chip" onclick="tog(this,'f')">Registered Nurse</div><div class="chip" onclick="tog(this,'f')">Junior Doctor</div><div class="chip" onclick="tog(this,'f')">Cloud / DevOps</div><div class="chip" onclick="tog(this,'f')">Cybersecurity</div><div class="chip" onclick="tog(this,'f')">Mechanical Eng</div><div class="chip" onclick="tog(this,'f')">Biomedical Sci</div><div class="chip" onclick="tog(this,'f')">Network Eng</div></div></div>
+    <div id="ch-hint" style="text-align:center;font-size:13px;color:var(--hint);padding:4px 0 8px">0 of 3 in Internships - 0 of 3 in Full-time</div>
+  </div>
+  <div class="nr"><button class="btn bno nbk" onclick="go('sc-6')">Back</button><button class="btn bnt nnx" onclick="finish()">Finish and View Profile</button></div>
+</div>
+
+<!-- PROFILE -->
+<div id="sc-profile" class="screen">
+  <div class="sc" style="padding:0">
+    <div class="ph">
+      <div class="phtop"><div class="phlogo"><svg width="22" height="22" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="10" r="8" fill="#20C997"/><rect x="33" y="10" width="14" height="46" rx="7" fill="white" opacity=".85"/><rect x="33" y="50" width="32" height="14" rx="7" fill="#20C997"/><polygon points="47,21 74,37 47,53" fill="rgba(255,255,255,.26)"/></svg><div class="phwm">LAMP</div></div><div class="phvbadge" id="pv-badge">0 Items Verified</div></div>
+      <div style="display:flex;align-items:flex-end;gap:16px;position:relative;z-index:1"><div class="phav" id="pv-av">?</div><div><div class="phname" id="pv-name">Your Profile</div><div class="phrole" id="pv-role">International Student - UK Visa-Sponsored Jobs</div><div style="font-size:12px;color:rgba(255,255,255,.65);margin-top:2px" id="pv-loc"></div></div></div>
+      <div class="strrow"><div class="strlbl">Profile Strength</div><div class="strpct" id="pv-pct">0%</div></div>
+      <div class="strtrk"><div class="strfil" id="pv-bar" style="width:0%"></div></div>
+      <div class="strhint">Verify items to strengthen your profile</div>
+    </div>
+    <div style="padding:24px 18px 32px">
+      <div class="card"><div class="ct">Earned Badges</div><div id="pv-badges"></div></div>
+      <div class="card"><div class="ct">Your Info</div><div class="igrid"><div class="icell"><div class="icl">CAREER FIELD</div><div class="icv" id="pv-field">-</div></div><div class="icell"><div class="icl">ITEMS VERIFIED</div><div class="icv" id="pv-vcount" style="color:var(--teal)">0</div></div><div class="icell"><div class="icl">PROFILE STAGE</div><div class="icv" style="color:var(--teal);font-size:13px">Complete</div></div><div class="icell"><div class="icl">VISA STATUS</div><div class="icv" style="color:var(--teal);font-size:13px" id="pv-visa">-</div></div></div></div>
+      <div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:4px">Matched UK SME Roles</div>
+      <div style="font-size:12.5px;color:var(--sub);margin-bottom:14px">AI-matched - Visa Sponsored - Based on your profile</div>
+      <div id="pv-jobs"><div style="text-align:center;padding:20px"><div class="spin"></div><div style="font-size:13px;color:var(--sub);margin-top:12px">Finding your matches...</div></div></div>
+      <div class="pbtns"><button class="btn bnt" onclick="toast('Full job board - coming soon!')">Browse Jobs</button><button class="btn bno" onclick="share()">Share Profile</button></div>
+      <div class="rrl" onclick="signOut()"><span>Sign out</span></div>
+    </div>
+  </div>
+  <div class="tabbar">
+    <div class="tab on"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></div>
+    <div class="tab" onclick="toast('Jobs - coming soon!')"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Jobs</span></div>
+    <div class="tab" onclick="toast('Badges - coming soon!')"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Badges</span></div>
+    <div class="tab" onclick="toast('Interviews - coming soon!')"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Interviews</span></div>
+    <div class="tab" onclick="toast('Alerts - coming soon!')"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span>Alerts</span></div>
+  </div>
+</div>
+
+<!-- QUIZ MODAL -->
+<div class="modal-bg" id="quiz-bg">
+  <div class="modal"><div class="modal-handle"></div><div id="quiz-wrap"><div style="text-align:center;padding:20px"><div class="spin"></div><div style="font-size:13px;color:var(--sub);margin-top:12px">Generating quiz...</div></div></div></div>
+</div>
+
+<!-- ADMIN MODAL -->
+<div class="modal-bg" id="admin-bg">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Signed Up Users</div>
+    <div class="modal-sub">All accounts stored in this browser (localStorage)</div>
+    <div id="admin-list"></div>
+    <button class="btn bno" style="margin-top:14px" onclick="document.getElementById('admin-bg').classList.remove('open')">Close</button>
+  </div>
+</div>
+
+</div>
+<div id="toast"></div>
+
+<script>
+// ── GOOGLE SHEETS ENDPOINT ──────────────────────────────────────
+// Replace this URL with your Google Apps Script Web App URL
+// See SETUP_DATA_COLLECTION.md for full instructions
+var SHEET_URL = 'https://script.google.com/macros/s/AKfycbzudf0hlAvKUkKN4IqRgqpwfdBD21AHuh105v9J74njmko8X6lJNP_9Auv9sDInZXo/exec';
+
+function sendToSheet(data) {
+  if (!SHEET_URL || SHEET_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') return;
+  try {
+    fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+  } catch(e) { console.log('Sheet sync failed silently'); }
+}
+
+var S={user:null,skills:{},uploads:{},refs:{},visa:false,chips:{i:0,f:0}};
+var qQs=[],qIdx=0,qScore=0,qTarget=null,qName=null,qAnswered=false;
+
+var DB={
+  getUsers:function(){return JSON.parse(localStorage.getItem('lamp_users')||'{}')},
+  setUsers:function(u){localStorage.setItem('lamp_users',JSON.stringify(u))},
+  getSess:function(){return JSON.parse(localStorage.getItem('lamp_sess')||'null')},
+  setSess:function(u){localStorage.setItem('lamp_sess',JSON.stringify(u))},
+  clrSess:function(){localStorage.removeItem('lamp_sess')},
+  getProf:function(e){return JSON.parse(localStorage.getItem('lamp_prof_'+e)||'null')},
+  setProf:function(e,p){localStorage.setItem('lamp_prof_'+e,JSON.stringify(p))}
+};
+
+window.onload=function(){
+  var s=DB.getSess();
+  if(s){S.user=s;var p=DB.getProf(s.email);if(p&&p.step>=8){renderProfile(p);}else if(p&&p.step>1){toast('Welcome back, '+s.firstName+'!');setTimeout(function(){go('sc-'+(p.step||1));},600);}else{go('sc-1');setTimeout(function(){var el=document.getElementById('p1-hi');if(el)el.textContent=s.firstName;},100);}}
+};
+
+function showPanel(p){
+  document.getElementById('panel-signin').style.display=p==='signin'?'':'none';
+  document.getElementById('panel-create').style.display=p==='create'?'':'none';
+  document.getElementById('si-cr-link').style.display=p==='signin'?'':'none';
+}
+function showErr(id,msg){var e=document.getElementById(id);e.textContent=msg;e.style.display='block';}
+
+function doSignIn(){
+  var em=document.getElementById('si-email').value.trim().toLowerCase();
+  var pw=document.getElementById('si-pass').value;
+  document.getElementById('si-err').style.display='none';
+  if(!em||!pw){showErr('si-err','Please enter your email and password');return;}
+  var users=DB.getUsers();
+  if(!users[em]){showErr('si-err','No account found with this email. Please sign up first.');return;}
+  if(users[em].password!==btoa(pw)){showErr('si-err','Incorrect password. Please try again.');return;}
+  S.user=users[em];DB.setSess(S.user);
+  toast('Welcome back, '+S.user.firstName+'!');
+  var p=DB.getProf(em);
+  if(p&&p.step>=8)renderProfile(p);
+  else if(p&&p.step>1)go('sc-'+(p.step||1));
+  else{go('sc-1');document.getElementById('p1-hi').textContent=S.user.firstName;}
+}
+
+function doCreate(){
+  var fn=document.getElementById('cr-fn').value.trim();
+  var ln=document.getElementById('cr-ln').value.trim();
+  var em=document.getElementById('cr-email').value.trim().toLowerCase();
+  var pw=document.getElementById('cr-pass').value;
+  var role=document.getElementById('cr-role').value;
+  document.getElementById('cr-err').style.display='none';
+  if(!fn||!ln){showErr('cr-err','Please enter your first and last name');return;}
+  if(!em||!em.includes('@')){showErr('cr-err','Please enter a valid email address');return;}
+  if(pw.length<6){showErr('cr-err','Password must be at least 6 characters');return;}
+  var users=DB.getUsers();
+  if(users[em]){showErr('cr-err','An account already exists with this email. Please sign in.');return;}
+  var u={firstName:fn,lastName:ln,email:em,password:btoa(pw),role:role,joinedAt:new Date().toISOString()};
+  users[em]=u;DB.setUsers(users);S.user=u;DB.setSess(u);
+  DB.setProf(em,{step:1,email:em});
+  // Send signup data to Google Sheets
+  sendToSheet({
+    firstName: fn, lastName: ln, email: em,
+    role: role, field: '', city: '',
+    visaType: '', skillsVerified: '',
+    badgesCount: 0, profileStrength: 0,
+    interests: '', event: 'signup',
+    timestamp: new Date().toISOString()
+  });
+  toast('Account created! Welcome to LAMP, '+fn+'!');
+  go('sc-1');document.getElementById('p1-hi').textContent=fn;
+}
+
+function quickDemo(){S.user={firstName:'Amir',lastName:'Okafor',email:'demo@lamp.app',role:'candidate',joinedAt:new Date().toISOString()};toast('Demo mode - explore freely!');go('sc-1');document.getElementById('p1-hi').textContent='Amir';}
+
+function saveStep1(){
+  var fn=document.getElementById('p1-fn').value.trim();
+  var ln=document.getElementById('p1-ln').value.trim();
+  var field=document.getElementById('p1-field').value;
+  if(!fn||!ln){toast('Please enter your name');return;}
+  if(!field){toast('Please select your career field');return;}
+  if(S.user&&S.user.email!=='demo@lamp.app'){var p=DB.getProf(S.user.email)||{};p.step=2;p.firstName=fn;p.lastName=ln;p.phone=document.getElementById('p1-ph').value;p.city=document.getElementById('p1-city').value;p.field=field;DB.setProf(S.user.email,p);}
+  go('sc-2');
+}
+
+function nxt(screen,step){
+  if(S.user&&S.user.email!=='demo@lamp.app'){var p=DB.getProf(S.user.email)||{};p.step=Math.max(p.step||0,step+1);p.skills=S.skills;p.uploads=S.uploads;p.refs=S.refs;DB.setProf(S.user.email,p);}
+  go(screen);
+}
+
+function saveVisa(){
+  var vt=document.getElementById('visa-type').value;
+  if(S.user&&S.user.email!=='demo@lamp.app'){var p=DB.getProf(S.user.email)||{};p.step=Math.max(p.step||0,7);p.visaType=vt;p.visaUploaded=S.visa;DB.setProf(S.user.email,p);}
+  go('sc-7');
+}
+
+function finish(){
+  var isel=[...document.querySelectorAll('#ch-intern .chip.sel')].map(function(c){return c.textContent.trim();});
+  var fsel=[...document.querySelectorAll('#ch-full .chip.sel')].map(function(c){return c.textContent.trim();});
+  if(isel.length===0&&fsel.length===0){toast('Please select at least one area of interest');return;}
+  var profData={step:8,skills:S.skills,uploads:S.uploads,refs:S.refs,interests:{internships:isel,fulltime:fsel}};
+  if(S.user&&S.user.email!=='demo@lamp.app'){var p=DB.getProf(S.user.email)||{};Object.assign(p,profData);p.visaType=document.getElementById('visa-type').value;p.visaUploaded=S.visa;DB.setProf(S.user.email,p);profData=p;}
+  else{profData.firstName=S.user?S.user.firstName:'Amir';profData.lastName=S.user?S.user.lastName:'Okafor';profData.field='Engineering';}
+  // Sync completed profile to Google Sheets
+  var skills = S.skills;
+  var verifiedSkills = Object.entries(skills).filter(function(e){return e[1]&&e[1].verified;}).map(function(e){return e[0]+' '+e[1].score+'%';}).join(', ');
+  var bCount = Object.entries(skills).filter(function(e){return e[1]&&e[1].verified;}).length;
+  var strength = Math.min(100, 10 + bCount*18 + (S.visa?15:0));
+  var isel2 = [...document.querySelectorAll('#ch-intern .chip.sel')].map(function(c){return c.textContent.trim();});
+  var fsel2 = [...document.querySelectorAll('#ch-full .chip.sel')].map(function(c){return c.textContent.trim();});
+  if (S.user) {
+    var p2 = DB.getProf(S.user.email) || {};
+    sendToSheet({
+      firstName: S.user.firstName, lastName: S.user.lastName,
+      email: S.user.email, role: S.user.role,
+      field: p2.field || '', city: p2.city || '',
+      visaType: document.getElementById('visa-type').value || '',
+      skillsVerified: verifiedSkills,
+      badgesCount: bCount, profileStrength: strength,
+      interests: isel2.concat(fsel2).join(', '),
+      event: 'profile_complete',
+      timestamp: new Date().toISOString()
+    });
+  }
+  renderProfile(profData);
+}
+
+function renderProfile(p){
+  var fn=p.firstName||(S.user?S.user.firstName:'');
+  var ln=p.lastName||(S.user?S.user.lastName:'');
+  var name=fn+' '+ln;var initials=(fn[0]||'?').toUpperCase()+(ln[0]||'?').toUpperCase();
+  var field=p.field||'-';var skills=p.skills||S.skills;var uploads=p.uploads||S.uploads;
+  var badges=Object.entries(skills).filter(function(e){return e[1]&&e[1].verified;});
+  var uploadCount=Object.keys(uploads).filter(function(k){return uploads[k];}).length;
+  var hasVisa=p.visaUploaded||p.visaType;
+  var vc=badges.length+(hasVisa?1:0)+(uploadCount>3?1:0);
+  var strength=Math.min(100,10+badges.length*18+(hasVisa?15:0)+Math.min(uploadCount*5,20));
+  document.getElementById('pv-av').textContent=initials;
+  document.getElementById('pv-name').textContent=name.trim()||'Your Profile';
+  document.getElementById('pv-loc').textContent=p.city?(p.city+' - '+field):'';
+  document.getElementById('pv-badge').textContent=''+vc+' Items Verified';
+  document.getElementById('pv-pct').textContent=strength+'%';
+  document.getElementById('pv-bar').style.width=strength+'%';
+  document.getElementById('pv-field').textContent=field;
+  document.getElementById('pv-vcount').textContent=vc;
+  var vtMap={graduate:'Graduate Route',skilled:'Skilled Worker',student:'Student (Tier 4)',youth:'Youth Mobility',dependant:'Dependant',other:'Other'};
+  document.getElementById('pv-visa').textContent=(p.visaType?vtMap[p.visaType]||p.visaType:'Pending');
+  var allB=[
+    {ico:'🎓',cls:'bact',nm:'Education',sb:uploads.cert_bsc?'Degree uploaded - Verified':'Not verified',ok:!!uploads.cert_bsc},
+    {ico:'💼',cls:'bact',nm:'Experience',sb:uploads.job_letter?'Letter uploaded - Verified':'Not verified',ok:!!uploads.job_letter},
+    {ico:'⚡',cls:'bact',nm:'Skills',sb:badges.length>0?badges.map(function(b){return b[0]+' '+b[1].score+'%';}).join(' - '):'0 verified',ok:badges.length>0},
+    {ico:'🤝',cls:'bloc',nm:'References',sb:Object.keys(p.refs||{}).length>0?Object.keys(p.refs).length+' sent':'0 sent - Pending',ok:Object.keys(p.refs||{}).length>0},
+    {ico:'🛂',cls:'bact',nm:'Visa',sb:hasVisa?(vtMap[p.visaType]||p.visaType||'Confirmed')+' - Verified':'Pending',ok:!!hasVisa},
+    {ico:'🌟',cls:'bamb',nm:'Early Bird',sb:'First 100 users bonus badge',ok:true,pill:'Earned!'}
+  ];
+  document.getElementById('pv-badges').innerHTML=allB.map(function(b){return '<div class="brow"><div class="bico '+(b.ok?b.cls:'bloc')+'">'+b.ico+'</div><div class="binf"><div class="bnm"'+((!b.ok&&!b.pill)?' style="color:var(--sub)"':'')+'>'+b.nm+'</div><div class="bsb">'+b.sb+'</div></div>'+(b.pill?'<span class="p pa">'+b.pill+'</span>':b.ok?'<div class="bchk">✓</div>':'<div class="blck">🔒</div>')+'</div>';}).join('');
+  var interests=p.interests||{};
+  var allInt=(interests.internships||[]).concat(interests.fulltime||[]);
+  getJobMatches(field,allInt,skills);
+  go('sc-profile');
+}
+
+async function getJobMatches(field,interests,skills){
+  var el=document.getElementById('pv-jobs');
+  var skillNames=Object.entries(skills||{}).filter(function(e){return e[1]&&e[1].verified;}).map(function(e){return e[0];}).join(', ');
+  var prompt='Return ONLY a JSON array of 3 UK visa-sponsored job matches for this candidate. No markdown. Career field: '+field+'. Interests: '+interests.join(', ')+'. Verified skills: '+(skillNames||'none')+'. Format: [{"icon":"emoji","title":"Job Title - Company Name","location":"City - Sponsor Type","match":92,"tags":["Visa Sponsor","type"]}]. Use realistic UK companies, cities, match scores 75-96, relevant to the career field.';
+  try{
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:prompt}]})});
+    var d=await r.json();
+    var txt=(d.content&&d.content[0]&&d.content[0].text)||'[]';
+    var jobs=JSON.parse(txt.replace(/```json|```/g,'').trim());
+    el.innerHTML=jobs.map(function(j){return '<div class="jcard"><div class="jctop"><div class="jico">'+(j.icon||'💼')+'</div><div style="flex:1"><div class="jtit">'+j.title+'</div><div class="jloc">'+j.location+'</div></div><div class="jmatch">'+j.match+'%</div></div><div class="jtags">'+j.tags.map(function(t){return '<span class="p '+(t.includes('Visa')||t.includes('Sponsor')?'pt':'pg')+'">'+t+'</span>';}).join('')+'</div></div>';}).join('');
+  }catch(e){
+    el.innerHTML='<div class="jcard"><div class="jctop"><div class="jico">🤖</div><div style="flex:1"><div class="jtit">ML Engineer - Crux AI Ltd</div><div class="jloc">Birmingham - Skilled Worker Sponsor</div></div><div class="jmatch">92%</div></div><div class="jtags"><span class="p pt">Visa Sponsor</span><span class="p pn">Skilled Worker</span></div></div><div class="jcard"><div class="jctop"><div class="jico">🏥</div><div style="flex:1"><div class="jtit">Band 5 Nurse - Midlands NHS Trust</div><div class="jloc">Coventry - Tier 2 Sponsorship</div></div><div class="jmatch">88%</div></div><div class="jtags"><span class="p pt">Visa Sponsor</span><span class="p pn">NHS</span></div></div><div class="jcard"><div class="jctop"><div class="jico">⚙️</div><div style="flex:1"><div class="jtit">Graduate Engineer - MechServe UK</div><div class="jloc">Sheffield - Certificate of Sponsorship</div></div><div class="jmatch">81%</div></div><div class="jtags"><span class="p pt">Visa Sponsor</span><span class="p pg">CoS</span></div></div>';
+  }
+}
+
+function startQuiz(fid,topic){qTarget=fid;qName=topic;openQuiz(topic);}
+function startSkillQ(n){var v=document.getElementById('sk-'+n).value.trim();if(!v){toast('Enter a skill name first');return;}qTarget='skill-'+n;qName=v;openQuiz(v+' practical skills and knowledge');}
+function openQuiz(topic){document.getElementById('quiz-bg').classList.add('open');document.getElementById('quiz-wrap').innerHTML='<div style="text-align:center;padding:20px"><div class="spin"></div><div style="font-size:13px;color:var(--sub);margin-top:12px">Generating quiz...</div></div>';genQuiz(topic);}
+
+async function genQuiz(topic){
+  try{
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:'Generate 5 multiple-choice quiz questions to verify knowledge of: '+topic+'. Return ONLY JSON, no markdown: {"questions":[{"q":"Question","opts":["A","B","C","D"],"correct":0}]}. 4 options each, correct is index 0-3, practical real-world questions, medium difficulty.'}]})});
+    var d=await r.json();
+    var txt=(d.content&&d.content[0]&&d.content[0].text)||'{}';
+    var parsed=JSON.parse(txt.replace(/```json|```/g,'').trim());
+    qQs=parsed.questions||[];qIdx=0;qScore=0;showQ();
+  }catch(e){
+    qQs=[{q:'Which approach is most effective when starting a new professional task?',opts:['Plan and understand requirements first','Start immediately without planning','Ask colleagues to do it','Wait for detailed instructions'],correct:0},{q:'In professional settings, clear communication means:',opts:['Being concise and specific','Using lots of technical jargon','Writing very long emails','Avoiding difficult topics'],correct:0},{q:'When you make a mistake at work, you should:',opts:['Acknowledge it and find a solution','Blame external factors','Hide it from your manager','Ignore it and move on'],correct:0},{q:'Continuous professional development involves:',opts:['Learning new skills relevant to your field','Only doing your assigned tasks','Avoiding feedback from colleagues','Sticking to methods you already know'],correct:0},{q:'A key trait of a reliable team member is:',opts:['Delivering on commitments','Promising more than you can achieve','Avoiding team meetings','Working only independently'],correct:0}];
+    qIdx=0;qScore=0;showQ();
+  }
+}
+
+function showQ(){
+  qAnswered=false;
+  var q=qQs[qIdx];if(!q)return;
+  document.getElementById('quiz-wrap').innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:12px;font-weight:700;color:var(--teal)">Q'+(qIdx+1)+' of '+qQs.length+'</span><span style="font-size:12px;color:var(--sub)">'+qScore+'/'+qIdx+' correct</span></div><div style="height:4px;background:var(--gray-2);border-radius:2px;margin-bottom:16px"><div style="height:4px;background:var(--teal);border-radius:2px;width:'+(qIdx/qQs.length*100)+'%;transition:width .3s"></div></div><div class="quiz-q-card"><div class="quiz-q-num">'+qName.toUpperCase()+'</div><div class="quiz-q-text">'+q.q+'</div></div><div class="quiz-opts">'+q.opts.map(function(o,i){return '<button class="quiz-opt" onclick="ansQ(this,'+i+','+q.correct+')">'+String.fromCharCode(65+i)+'. '+o+'</button>';}).join('')+'</div>';
+}
+
+function ansQ(btn,chosen,correct){
+  if(qAnswered)return;qAnswered=true;
+  document.querySelectorAll('.quiz-opt').forEach(function(o,i){if(i===correct)o.classList.add('correct');else if(i===chosen&&chosen!==correct)o.classList.add('wrong');o.disabled=true;});
+  if(chosen===correct)qScore++;
+  setTimeout(function(){qIdx++;if(qIdx<qQs.length)showQ();else showResult();},900);
+}
+
+function showResult(){
+  var pct=Math.round(qScore/qQs.length*100);var passed=pct>=50;
+  var grade=pct>=80?'Excellent!':pct>=60?'Good job!':pct>=50?'Passed!':'Keep practising';
+  document.getElementById('quiz-wrap').innerHTML='<div style="text-align:center;padding:10px 0"><div class="score-ring" style="border-color:'+(passed?'var(--teal)':'var(--amber)')+'"><div style="font-size:28px;font-weight:800;color:'+(passed?'var(--teal)':'var(--amber)')+'">'+pct+'%</div><div style="font-size:11px;color:var(--sub);font-weight:600">SCORE</div></div><div style="font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px">'+grade+'</div><div style="font-size:14px;color:var(--sub);margin-bottom:20px">'+qScore+' of '+qQs.length+' correct</div>'+(passed?'<div class="ib ibt" style="text-align:left;margin-bottom:16px">Badge earned! <strong>'+qName+'</strong> added to your profile with score <strong>'+pct+'%</strong>.</div><button class="btn bnt" onclick="claimBadge('+pct+')">Claim Badge</button>':'<div class="ib iba" style="text-align:left;margin-bottom:16px">You need 50% or more to earn a badge. Try again!</div><button class="btn bnt" onclick="retry()">Try Again</button>')+'<button class="btn bno" style="margin-top:10px" onclick="closeQ()">Close</button></div>';
+}
+
+function claimBadge(score){
+  var t=qTarget;var name=qName;
+  if(t.startsWith('skill-')){
+    var n=t.replace('skill-','');
+    var sks=document.getElementById('sks-'+n);var vb=document.getElementById('vbsk-'+n);
+    if(sks){sks.textContent='Verified';sks.classList.add('ok');}
+    if(vb){var ring=document.createElement('div');ring.className='sring';ring.textContent=score;vb.replaceWith(ring);}
+    S.skills[name]={verified:true,score:score};
+    var bl=document.getElementById('bl');
+    if(bl)bl.innerHTML=Object.entries(S.skills).filter(function(e){return e[1].verified;}).map(function(e){return '<span class="p pt">'+e[0]+' '+e[1].score+'%</span>';}).join('');
+  } else {
+    var vbtn=document.getElementById('vb-'+t);if(vbtn){vbtn.textContent='Done';vbtn.classList.add('vd');}
+  }
+  closeQ();toast('Badge earned! '+name+' - Score: '+score+'%');
+}
+function retry(){qIdx=0;qScore=0;showQ();}
+function closeQ(){document.getElementById('quiz-bg').classList.remove('open');}
+
+function upl(btn,key){
+  if(btn.tagName==='BUTTON'){btn.textContent='Uploaded';btn.classList.add('ud');if(key)S.uploads[key]=true;toast('File uploaded');}
+  else if(btn.classList.contains('pslot')){btn.textContent='📸';btn.classList.add('pf');if(key)S.uploads[key]=true;toast('Photo added');}
+}
+function uplVisa(el){S.visa=true;var cta=document.getElementById('vup-cta');if(cta)cta.textContent='Uploaded';el.style.borderColor='var(--teal)';el.style.background='var(--teal-ll)';document.getElementById('vconf').style.display='block';var vt=document.getElementById('visa-type').value;document.getElementById('vconf-txt').textContent=(vt||'Graduate Route')+' - Right to work in the UK';toast('Visa document uploaded - encrypted and private');}
+
+function sndRef(n){var nm=document.getElementById('ref'+n+'n').value.trim();var em=document.getElementById('ref'+n+'e').value.trim();if(!nm||!em){toast('Please enter name and email');return;}if(!em.includes('@')){toast('Please enter a valid email');return;}S.refs[n]={name:nm,email:em,sentAt:new Date().toISOString()};var btn=document.getElementById('refbtn'+n);btn.innerHTML='Invite Sent to '+nm;btn.classList.add('sent');btn.disabled=true;toast('Invite sent to '+nm+'!');}
+
+var chipC={i:0,f:0};
+function tog(el,cat){if(el.classList.contains('sel')){el.classList.remove('sel');chipC[cat]--;}else{if(chipC[cat]>=3){toast('Maximum 3 per category');return;}el.classList.add('sel');chipC[cat]++;toast('Added');}var h=document.getElementById('ch-hint');if(h)h.textContent=chipC.i+' of 3 in Internships - '+chipC.f+' of 3 in Full-time';}
+
+function go(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});var el=document.getElementById(id);if(!el)return;el.classList.add('active');var sc=el.querySelector('.sc,.sisc');if(sc)sc.scrollTop=0;}
+
+function showAdmin(){
+  var users=DB.getUsers();var keys=Object.keys(users);var al=document.getElementById('admin-list');
+  if(!keys.length){al.innerHTML='<div style="text-align:center;padding:20px;color:var(--sub)">No signups yet</div>';}
+  else{al.innerHTML=keys.map(function(k){var u=users[k];var p=DB.getProf(k)||{};return '<div class="user-row"><div class="user-av">'+((u.firstName||'?')[0]+(u.lastName||'?')[0]).toUpperCase()+'</div><div style="flex:1"><div style="font-size:14px;font-weight:700;color:var(--text)">'+u.firstName+' '+u.lastName+'</div><div style="font-size:12px;color:var(--sub);margin-top:2px">'+k+' - '+u.role+' - Step '+(p.step||1)+'/8 - '+new Date(u.joinedAt).toLocaleDateString()+'</div></div></div>';}).join('');}
+  document.getElementById('admin-bg').classList.add('open');
+}
+
+function signOut(){DB.clrSess();S.user=null;S.skills={};S.uploads={};S.refs={};S.visa=false;go('sc-signin');showPanel('signin');toast('Signed out. See you soon!');}
+function share(){if(navigator.share)navigator.share({title:'My LAMP Profile',url:window.location.href}).catch(function(){});else if(navigator.clipboard){navigator.clipboard.writeText(window.location.href);toast('Profile link copied!');}}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},2600);}
+document.addEventListener('change',function(e){if(e.target.id==='visa-type'&&S.visa){document.getElementById('vconf').style.display='block';var m={graduate:'Graduate Route',skilled:'Skilled Worker',student:'Student (Tier 4)',youth:'Youth Mobility',dependant:'Dependant',other:'Other'};document.getElementById('vconf-txt').textContent=(m[e.target.value]||e.target.value||'Graduate Route')+' - Right to work in the UK';}});
+document.addEventListener('focusin',function(e){if(e.target.matches('.inp'))setTimeout(function(){e.target.scrollIntoViewIfNeeded&&e.target.scrollIntoViewIfNeeded(true);},320);});
+</script>
+</body>
+</html>
